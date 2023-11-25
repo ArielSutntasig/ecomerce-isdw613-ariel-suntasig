@@ -1,0 +1,10 @@
+/** @format*/
+
+h2 {
+    color: green;
+}
+
+.cell-header {
+    background-color: burlywood;
+    font-weight: bold;
+}
