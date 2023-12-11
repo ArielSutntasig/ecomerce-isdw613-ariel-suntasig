@@ -1,0 +1,36 @@
+.details {
+  background-color: rgb(120, 23, 23);
+  font-size: Helvetica, sans-serif;
+  color: green;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+
+.container-header {
+  background-color: rgb(120, 23, 23);
+  font-size: Helvetica, sans-serif;
+  color: blue;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+
+.button-base {
+  border: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.button-base {
+  background-color: rgb(120, 23, 23);
+}
+
+nav ul li a {
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=mystyle.css.map */

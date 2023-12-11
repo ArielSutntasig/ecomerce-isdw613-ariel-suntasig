@@ -1,0 +1,32 @@
+@import "VariablesTaller.scss";
+@import "MixinsTaller.scss";
+
+h1 {
+    color: $mycolor1;
+}
+
+.H5 {
+    color: $mycolor2;
+}
+
+.paragraph {
+    color: $mycolorP;
+}
+
+title {
+    color: $mycolor1;
+}
+
+p {
+    @include important-content;
+}
+
+body {
+    background-color: $background;
+    font-family: $myfont;
+    font-size: $myFontSize;
+}
+
+.A {
+    color: $mycolor2;
+}
