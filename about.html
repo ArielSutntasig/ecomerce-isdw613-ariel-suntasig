@@ -4,7 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Acerca de</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 
     <style>
         #titulo {
@@ -122,69 +133,89 @@
             background-color: rgb(189, 176, 25);
         }
     </style>
+
 </head>
 
-<body>
-    <p id="titulo">Acerca de</p>
-    <ol>
-        <li>Lista 1</li>
-        <li>Lista 2</li>
-        <li>Lista 3</li>
-        <li>Lista 4</li>
-        <li>Lista 5</li>
-    </ol>
+<body class="container mt-5">
+    <h1 class="fw-bold" id="titulo">Acerca de</h1>
+    <hr>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Título de la Tarjeta</h5>
+            <ol>
+                <li>Lista 1</li>
+                <li>Lista 2</li>
+                <li>Lista 3</li>
+                <li>Lista 4</li>
+                <li>Lista 5</li>
+            </ol>
+        </div>
+    </div>
 
-    <p class="mitexto">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate
-        cursus dui, finibus sollicitudin dui finibus ac. Suspendisse sollicitudin
-        scelerisque dolor, vel rutrum libero. Sed a lectus id libero dignissim
-        pellentesque. Nam vel libero quis eros convallis cursus. Nam mauris
-        tortor, cursus ut sem vel, sollicitudin euismod libero. In feugiat dapibus
-        ante, vel aliquam ligula. Pellentesque quis lobortis sem, in porta velit.
-        Maecenas lobortis risus non turpis pretium imperdiet. Maecenas iaculis
-        pharetra odio, eu volutpat mauris. Praesent volutpat massa a nulla
-        vestibulum, in iaculis lacus consectetur. Pellentesque sit amet dolor quis
-        ligula ultrices rhoncus a vitae nisl. Suspendisse dolor purus, rhoncus sit
-        amet sapien ornare, placerat luctus ligula. Nunc egestas quam feugiat
-        lobortis dignissim.
-    </p>
+    <hr>
 
-    <div style="width: 70%">
-        <table>
-            <tr>
+
+    <div class="content">
+        <div class="card">
+            <div class="card-body">
+                <p class="mitexto card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate
+                    cursus dui, finibus sollicitudin dui finibus ac. Suspendisse sollicitudin
+                    scelerisque dolor, vel rutrum libero. Sed a lectus id libero dignissim
+                    pellentesque. Nam vel libero quis eros convallis cursus. Nam mauris
+                    tortor, cursus ut sem vel, sollicitudin euismod libero. In feugiat dapibus
+                    ante, vel aliquam ligula. Pellentesque quis lobortis sem, in porta velit.
+                    Maecenas lobortis risus non turpis pretium imperdiet. Maecenas iaculis
+                    pharetra odio, eu volutpat mauris. Praesent volutpat massa a nulla
+                    vestibulum, in iaculis lacus consectetur. Pellentesque sit amet dolor quis
+                    ligula ultrices rhoncus a vitae nisl. Suspendisse dolor purus, rhoncus sit
+                    amet sapien ornare, placerat luctus ligula. Nunc egestas quam feugiat
+                    lobortis dignissim.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-border table-sm">
+            <thead class="table-dark">
                 <th>Nombre</th>
                 <th>Correo</th>
                 <th>Tel&eacute;fone</th>
-            </tr>
-            <tr>
-                <td>Joan Doe</td>
-                <td>joan.doe.example.com</td>
-                <td>+593555555555</td>
-            </tr>
-            <tr>
-                <td>Joan Doe</td>
-                <td>joan.doe.example.com</td>
-                <td>+593555555555</td>
-            </tr>
-            <tr>
-                <td>Joan Doe</td>
-                <td>joan.doe.example.com</td>
-                <td>+593555555555</td>
-            </tr>
-            <tr>
-                <td>Joan Doe</td>
-                <td>joan.doe.example.com</td>
-                <td>+593555555555</td>
-            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td>Joan Doe</td>
+                    <td>joan.doe.example.com</td>
+                    <td>+593555555555</td>
+                </tr>
+                <tr>
+                    <td>Joan Doe</td>
+                    <td>joan.doe.example.com</td>
+                    <td>+593555555555</td>
+                </tr>
+                <tr>
+                    <td>Joan Doe</td>
+                    <td>joan.doe.example.com</td>
+                    <td>+593555555555</td>
+                </tr>
+                <tr>
+                    <td>Joan Doe</td>
+                    <td>joan.doe.example.com</td>
+                    <td>+593555555555</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
-    <a href="http://wikipedia.org/" target="_blank">Mis otros productos</a>
+    <a href="http://wikipedia.org/" target="_blank" class="text-decoration-none btn btn-primary">Mis otros productos</a>
 
     <br />
-    <div class="micombinador">
-        <p>Texto dentro del combinador</p>
-        <h1>Cabecera</h1>
+    <br>
+    <div>
+        <p class="micombinador btn btn-secondary">Texto dentro del combinador</p>
     </div>
 </body>
 

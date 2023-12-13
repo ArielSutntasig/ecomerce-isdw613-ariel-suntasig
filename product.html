@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <title>Atari 2600</title>
     <link rel="stylesheet" href="assets/styles/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
     <!-- Selector por clave -->
     <style>
         h1 {
@@ -18,60 +26,95 @@
     </style>
 </head>
 
-<body>
-    <h1 id="ProductName">Atari 2600</h1>
-
-    <img id="imgProduct" src="assets/images/atari2600.jpg" width="600px" />
-    <h2 id="productDetailsTitle">Detallles</h2>
-    <p style="font-size: 12px;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate cursus dui, finibus sollicitudin dui
-        finibus ac. Suspendisse sollicitudin scelerisque dolor, vel rutrum libero. Sed a lectus id libero dignissim
-        pellentesque. Nam vel libero quis eros convallis cursus. Nam mauris tortor, cursus ut sem vel, sollicitudin
-        euismod libero. In feugiat dapibus ante, vel aliquam ligula. Pellentesque quis lobortis sem, in porta velit.
-        Maecenas lobortis risus non turpis pretium imperdiet. Maecenas iaculis pharetra odio, eu volutpat mauris.
-        Praesent volutpat massa a nulla vestibulum, in iaculis lacus consectetur. Pellentesque sit amet dolor quis
-        ligula ultrices rhoncus a vitae nisl. Suspendisse dolor purus, rhoncus sit amet sapien ornare, placerat luctus
-        ligula. Nunc egestas quam feugiat lobortis dignissim.
-
-        Nulla at velit eget turpis congue ultrices. Suspendisse tempor, arcu ut pretium blandit, nunc felis dapibus
-        orci, et fermentum est odio in risus. Sed quis purus tincidunt, imperdiet orci condimentum, ullamcorper sapien.
-        Integer tempor, mi ut aliquet pulvinar, sem urna hendrerit odio, vel venenatis nunc lacus vel mi. Donec sed
-        condimentum metus. Aliquam rutrum mauris id mi facilisis, non condimentum tellus venenatis. Fusce eget lobortis
-        tortor, a cursus nisl. Curabitur in risus semper, placerat nunc et, gravida sapien. Fusce in eros a nunc varius
-        viverra. Nam tempor tincidunt justo, quis tempus lacus sollicitudin sed. Morbi neque elit, finibus in mauris in,
-        viverra accumsan arcu. Morbi tincidunt scelerisque mauris, suscipit tempor enim commodo et. Nullam malesuada
-        orci commodo justo eleifend efficitur. Phasellus ac suscipit orci.
-    </p>
+<body class="container mt-5">
     <hr>
-    <p>
-        Precio: $160
-    </p>
-
+    <h1 class="mb-4" id="ProductName">Atari 2600</h1>
     <hr>
 
-    <h2>
+    <div class="content">
+        <div class="card">
+            <img class="card-img-top" id="imgProduct" src="assets/images/atari2600.jpg" width="600px" alt="Atari" />
+            <div class="card-body">
+                <h2 id="productDetailsTitle" class="card-title h2">Detalles</h2>
+                <p class="card-text" style="font-size: 12px;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate cursus dui, finibus
+                    sollicitudin dui
+                    finibus ac. Suspendisse sollicitudin scelerisque dolor, vel rutrum libero. Sed a lectus id
+                    libero
+                    dignissim
+                    pellentesque. Nam vel libero quis eros convallis cursus. Nam mauris tortor, cursus ut sem vel,
+                    sollicitudin
+                    euismod libero. In feugiat dapibus ante, vel aliquam ligula. Pellentesque quis lobortis sem, in
+                    porta velit.
+                    Maecenas lobortis risus non turpis pretium imperdiet. Maecenas iaculis pharetra odio, eu
+                    volutpat
+                    mauris.
+                    Praesent volutpat massa a nulla vestibulum, in iaculis lacus consectetur. Pellentesque sit amet
+                    dolor quis
+                    ligula ultrices rhoncus a vitae nisl. Suspendisse dolor purus, rhoncus sit amet sapien ornare,
+                    placerat luctus
+                    ligula. Nunc egestas quam feugiat lobortis dignissim.
+
+                    Nulla at velit eget turpis congue ultrices. Suspendisse tempor, arcu ut pretium blandit, nunc
+                    felis
+                    dapibus
+                    orci, et fermentum est odio in risus. Sed quis purus tincidunt, imperdiet orci condimentum,
+                    ullamcorper sapien.
+                    Integer tempor, mi ut aliquet pulvinar, sem urna hendrerit odio, vel venenatis nunc lacus vel
+                    mi.
+                    Donec sed
+                    condimentum metus. Aliquam rutrum mauris id mi facilisis, non condimentum tellus venenatis.
+                    Fusce
+                    eget lobortis
+                    tortor, a cursus nisl. Curabitur in risus semper, placerat nunc et, gravida sapien. Fusce in
+                    eros a
+                    nunc varius
+                    viverra. Nam tempor tincidunt justo, quis tempus lacus sollicitudin sed. Morbi neque elit,
+                    finibus
+                    in mauris in,
+                    viverra accumsan arcu. Morbi tincidunt scelerisque mauris, suscipit tempor enim commodo et.
+                    Nullam
+                    malesuada
+                    orci commodo justo eleifend efficitur. Phasellus ac suscipit orci.
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">
+                Precio: $160
+            </p>
+        </div>
+    </div>
+    <hr>
+
+    <h2 class="fw-bold mb-4">
         Ficha T&eacute;cnica
     </h2>
 
-    <table>
-        <tr>
-            <td class="cell-header">Peso:</td>
-            <td>2 libras</td>
-        </tr>
-        <tr>
-            <td class="cell-header">Dimensiones:</td>
-            <td>30 x 20 x 10 cm</td>
-        </tr>
-        <tr>
-            <td class="cell-header">A&ntilde;o de Fabricac&oacute;n:</td>
-            <td>1978</td>
-        </tr>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-border table-sm">
+            <tr>
+                <td class="cell-header table-primary">Peso:</td>
+                <td>2 libras</td>
+            </tr>
+            <tr>
+                <td class="cell-header table-primary">Dimensiones:</td>
+                <td>30 x 20 x 10 cm</td>
+            </tr>
+            <tr>
+                <td class="cell-header table-primary">A&ntilde;o de Fabricac&oacute;n:</td>
+                <td>1978</td>
+            </tr>
 
-        <tr>
-            <td class="cell-header">Condici&oacute;n:</td>
-            <td>Reparado - Buen Estado</td>
-        </tr>
-    </table>
+            <tr>
+                <td class="cell-header table-primary">Condici&oacute;n:</td>
+                <td>Reparado - Buen Estado</td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>
