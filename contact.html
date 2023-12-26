@@ -5,38 +5,108 @@
 <head>
     <title>Cont&aacute;ctenos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+        /*input:invalid {
+            border: 2px dashed red;
+        }
+
+        input:valid {
+            border: 2px solid Oblack;
+        }*/
+    </style>
 </head>
 
-<body class="container mt-5">
+<body onload="pageInitialize();" class="container mt-5">
     <h1 class="mb-4">Cont&aacute;ctenos</h1>
-    <hr>
+    <hr />
 
-    <form>
-        <div class="mb-3">
+    <form method="GET" action="/processForm.html" onsubmit="return validateForm();">
+        <div class="mb-3 form-control">
             <label for="nombre" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre">
+            <input id="name" placeholder="Ingrese el nombre" name="nombre" type="text" onchange="changeInput();"
+                class="form-control" required minlength="5" maxlength="20" />
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 form-control">
+            <label for="age" class="form-label">Edad:</label>
+            <input id="age" placeholder="Ingrese la edad" name="edad" type="number" onchange="changeInput();"
+                class="form-control" required  />
+        </div>
+
+        <div class="mb-3 form-control">
+            <label for="address" class="form-label">Direccion:</label>
+            <input id="address" placeholder="Ingrese su Direccion" name="direccion" type="text"
+                onchange="changeInput();" class="form-control" required pattern="[A-Za-z ]+" />
+        </div>
+
+        <div class="mb-3 form-control">
             <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email">
+            <input id="email" placeholder="Ingrese un correo Electronico" name="correo" type="email"
+                onchange="OneKeyDownEvent();" class="form-control" required />
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 form-control">
             <label for="comentario" class="form-label">Comentario:</label>
-            <textarea class="form-control" id="comentario" rows="5"></textarea>
+            <textarea id="comment" placeholder="Ingrese un comentario" name="comentario" class="form-control"
+                rows="5"></textarea>
         </div>
-        <hr>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+
+
+        <div class="mb-3 form-control">
+            <label>Sistemas Operativos</label>
+            <input type="checkbox" id="windows" name="os" value="Windows" />
+            <label for="windows">Windows</label>
+            <input type="checkbox" id="macos" name="os" value="Macos" />
+            <label for="macos">Macos</label>
+            <input type="checkbox" id="linux" name="os" value="Linux" />
+            <label for="linux">Linux</label>
+
+        </div>
+        <br />
+
+        <div class="mb-3 form-control">
+            <label class="form-label">Metodo de Pago</label>
+            <input type="radio" id="creditcard" name="paymentMethod" value="creditcard" />
+            <label for="creditcard">Tarjeta de Cr&eacute;dito</label>
+            <input type="radio" id="paypal" name="paymentMethod" value="paypal" />
+            <label for="paypal">Paypal</label>
+            <input type="radio" id="bitcoin" name="paymentMethod" value="bitcoin" />
+            <label for="bitcoin">Bitcoin</label>
+        </div>
+
+        <div class="mb-3 form-control">
+            <br />
+            <label for="deliveryAddress" class="form-label">Direccion de Entega</label>
+            <select id="deliveryAddress">
+                <option>Casa</option>
+                <option>Oficina</option>
+                <option>Otro</option>
+            </select>
+        </div>
+
+        <br />
+        <br />
+
+        <div class="mb-3 form-control">
+            <label for="clave" class="form-label">Clave</label>
+            <input id="clave" type="password" placeholder="Ingrese la Clave" />
+        </div>
+
+        <br />
         <br>
-        <br>
+
+        <div class="mb-3 form-control">
+            <label for="invoice">Factura</label>
+            <input type="file" id="invoice" />
+        </div>
+        <br />
+
+        <hr />
+        <input type="submit" value="Enviar" />
+
+        <br />
+        <br />
 
         <!--  
         <label> Fecha </label>
@@ -57,9 +127,75 @@
             <input type="checkbox">
 
         -->
-
-
     </form>
+
+    <button onclick="agregarParrafo();">agregarParrafo</button>
+    <button onclick="this.innerHTML= Date()">Click Me</button>
+    <br />
+    <img onmouseover="changeStyle(this, '300px'); changeImage(this, 'assets/images/atari2600.jpg');"
+        onmouseout="changeStyle(this, '200px'); changeImage(this, 'assets/images/snes.jpg') ;"
+        src="assets/images/snes.jpg" width="200px" />
+
+    <script>
+        function validateForm() {
+            //var inputName = document.getElementById("name");
+
+            var inputAge = document.getElementById("age");
+
+            /*
+            if (inputName.value == "") {
+                alert("El nombre es requerido");
+                return false;
+            }
+
+            if (
+                isNaN(inputAge.value) ||
+                inputAge.value < 0 ||
+                inputAge.value > 100
+            ) {
+                return false;
+            }*/
+
+            return true;
+        }
+
+        function changeImage(element, newImage) {
+            element.src = newImage;
+        }
+
+        function changeStyle(element, newsize) {
+            element.style.width = newsize;
+            //element.style.color = "red";
+        }
+
+        function agregarParrafo() {
+            var parrafo = document.createElement("p");
+            var texto = document.createTextNode(
+                "Este parrafo fue creado dinamicamente"
+            );
+            parrafo.appendChild(texto);
+            document.body.appendChild(parrafo);
+        }
+
+        function pageInitialize() {
+            console.log("pageInitialize...");
+        }
+
+        function changeInput() {
+            console.log("changeInput...");
+        }
+
+        function OneKeyDownEvent() {
+            console.log("OneKeyDownEvent...");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
