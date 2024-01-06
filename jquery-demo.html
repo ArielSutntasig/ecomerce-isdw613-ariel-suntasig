@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" qöntent="width=device-width, initial-scale=1.0">
+    <title>JQuery Sample</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+</head>
+
+<body>
+    <div id="mycontent" class="myclass">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, aliquid asperiores ab labore ullam corporis aut
+        id exercitationem officiis possimus voluptatem non maiores corrupti! Nihil voluptatum ad quasi unde vero.
+    </div>
+
+    <button onclick="hidecontent()">Ocultar</button>
+    <div id="mysecondarycontent" style="border: 2px solid red;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, aliquid asperiores ab labore ullam corporis aut
+        id exercitationem officiis possimus voluptatem non maiores corrupti! Nihil voluptatum ad quasi unde vero.
+    </div>
+
+    <table id="myTable" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Call your modal-->
+    <a id="demo01" href="#animatedModal">DEMO01</a>
+
+    <!--DEMO01-->
+    <div id="animatedModal">
+        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+        <div class="close-animatedModal">
+            CLOSE MODAL
+        </div>
+
+        <div class="modal-content">
+            <!--Your modal content goes here-->
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/animatedModal.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script>
+
+        $("#mysecondarycontent").mouseenter(function () {
+            $(this).css("color", "blue");
+        });
+
+        $("#mysecondarycontent").mouseleave(function () {
+            $(this).css("color", "black");
+        });
+
+
+
+        function hidecontent() {
+            //document.getElementById("mycontent").style.visibility = "hidden";
+            //$(selector).action();
+
+            //$("#mycontent").hide();
+            //$(".myclass").hide(); //document.getElementsByClassName("myclass").array.forEach(element => {
+            //    element.style.visibility = "hidden";});
+            $("div").hide();
+
+            //$("*") -> Seleccionar todos los elementos de la pagina
+            //$(this) -> Obtener la elemento actual
+            //$("p.className") Obtenemos todos  los elemento de tipio <p> y le aplicamos el estilo de la clase className
+            //$("p:first") -> Obtenemos el primer elemento del DOM de tipo <p> 
+            //$("ul li:first") -> Obtenemos el primer elemento del DOM de tipo <li> que este dentro de un elemento <ul> osea el primer elemento de una lista
+            //$("ul li:first-child") -> Obtenemos el primer elemento del DOM de tipo <li> que este dentro de un elemento <ul> osea el primer elemento de una lista
+            //$("[href]") -> Obtenemos todos los elementos que tengan el atributo href
+            //$("a[target='_blank']") -> Obtenemos todos los elementos <a> que tengan el atributo target con el valor _blank
+            //$("a[target!='_blank']") -> Obtenemos todos los elementos <a> que tengan el atributo target con el valor diferente de _blank
+            //$(":button") -> Obtenemos todos los elementos de tipo button
+            //$("tr:even") -> Obtenemos todos los elementos de tipo tr que esten en una posicion par
+            //$("tr:odd") -> Obtenemos todos los elementos de tipo tr que esten en una posicion impar
+            //$("p:contains('text')") -> Obtenemos todos los elementos de tipo p que contengan el texto text
+            //$("tr:not(.miClase)") -> Obtenemos todos los elementos de tipo tr que no tengan la clase miClase
+        }
+
+        $(document).ready(function () {
+            console.log("page is ready!");
+            $('#myTable').DataTable();
+            $("#demo01").animatedModal();
+        });
+
+        $("#btnHide").click(function () {
+            $(this).text("Oculto");
+            hidecontent();
+        });
+
+    </script>
+</body>
+
+</html>
