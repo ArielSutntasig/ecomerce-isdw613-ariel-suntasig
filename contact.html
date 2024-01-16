@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -21,7 +20,7 @@
     <h1 class="mb-4">Cont&aacute;ctenos</h1>
     <hr />
 
-    <form method="GET" action="/processForm.html" onsubmit="return validateForm();">
+    <form id="form1" method="POST" action="/contact-process.php" enctype="multipart/form-data">
         <div class="mb-3 form-control">
             <label for="nombre" class="form-label">Nombre:</label>
             <input id="name" placeholder="Ingrese el nombre" name="nombre" type="text" onchange="changeInput();"
@@ -30,20 +29,20 @@
 
         <div class="mb-3 form-control">
             <label for="age" class="form-label">Edad:</label>
-            <input id="age" placeholder="Ingrese la edad" name="edad" type="number" onchange="changeInput();"
-                class="form-control" required  />
+            <input id="age" placeholder="Ingrese la edad" name="edad" type="number"
+                onchange="validateAge(); changeInput();" class="form-control" required />
         </div>
 
         <div class="mb-3 form-control">
-            <label for="address" class="form-label">Direccion:</label>
-            <input id="address" placeholder="Ingrese su Direccion" name="direccion" type="text"
+            <label for="address" class="form-label">Direcci&oacute;n:</label>
+            <input id="address" placeholder="Ingrese su Direcci&oacute;n" name="direccion" type="text"
                 onchange="changeInput();" class="form-control" required pattern="[A-Za-z ]+" />
         </div>
 
         <div class="mb-3 form-control">
             <label for="email" class="form-label">Email:</label>
-            <input id="email" placeholder="Ingrese un correo Electronico" name="correo" type="email"
-                onchange="OneKeyDownEvent();" class="form-control" required />
+            <input id="email" placeholder="Ingrese un correo Electr&oacute;nico" name="correo" type="email"
+                onchange="validateEmail(); OneKeyDownEvent();" class="form-control" required />
         </div>
 
         <div class="mb-3 form-control">
@@ -52,33 +51,31 @@
                 rows="5"></textarea>
         </div>
 
-
         <div class="mb-3 form-control">
             <label>Sistemas Operativos</label>
-            <input type="checkbox" id="windows" name="os" value="Windows" />
+            <input type="checkbox" id="windows" name="os[]" value="Windows" />
             <label for="windows">Windows</label>
-            <input type="checkbox" id="macos" name="os" value="Macos" />
+            <input type="checkbox" id="macos" name="os[]" value="Macos" />
             <label for="macos">Macos</label>
-            <input type="checkbox" id="linux" name="os" value="Linux" />
+            <input type="checkbox" id="linux" name="os[]" value="Linux" />
             <label for="linux">Linux</label>
-
         </div>
+
         <br />
 
         <div class="mb-3 form-control">
-            <label class="form-label">Metodo de Pago</label>
+            <label class="form-label">M&eacute;todo de Pago</label>
             <input type="radio" id="creditcard" name="paymentMethod" value="creditcard" />
             <label for="creditcard">Tarjeta de Cr&eacute;dito</label>
             <input type="radio" id="paypal" name="paymentMethod" value="paypal" />
-            <label for="paypal">Paypal</label>
+            <label for="paypal">PayPal</label>
             <input type="radio" id="bitcoin" name="paymentMethod" value="bitcoin" />
             <label for="bitcoin">Bitcoin</label>
         </div>
 
         <div class="mb-3 form-control">
-            <br />
-            <label for="deliveryAddress" class="form-label">Direccion de Entega</label>
-            <select id="deliveryAddress">
+            <label for="deliveryAddress" class="form-label">Direcci&oacute;n de Entrega</label>
+            <select id="deliveryAddress" name="deliveryAddress">
                 <option>Casa</option>
                 <option>Oficina</option>
                 <option>Otro</option>
@@ -90,15 +87,16 @@
 
         <div class="mb-3 form-control">
             <label for="clave" class="form-label">Clave</label>
-            <input id="clave" type="password" placeholder="Ingrese la Clave" />
+            <input id="clave" name="clave" type="password" placeholder="Ingrese la Clave" onchange="validatePassword();"
+                required />
         </div>
 
         <br />
-        <br>
+        <br />
 
         <div class="mb-3 form-control">
             <label for="invoice">Factura</label>
-            <input type="file" id="invoice" />
+            <input type="file" id="invoice" name="file1" />
         </div>
         <br />
 
@@ -115,7 +113,7 @@
         <label>Clave</label>
         <input type="password">
         <br />
-        <labe>Clave</label>
+        <label>Clave</label>
             <input type="radio">
             <input type="number">
             <input type="time">
@@ -127,9 +125,10 @@
             <input type="checkbox">
 
         -->
+
     </form>
 
-    <button onclick="agregarParrafo();">agregarParrafo</button>
+    <button onclick="agregarParrafo();">Agregar P&aacute;rrafo</button>
     <button onclick="this.innerHTML= Date()">Click Me</button>
     <br />
     <img onmouseover="changeStyle(this, '300px'); changeImage(this, 'assets/images/atari2600.jpg');"
@@ -137,26 +136,35 @@
         src="assets/images/snes.jpg" width="200px" />
 
     <script>
-        function validateForm() {
-            //var inputName = document.getElementById("name");
 
+        function validateAge() {
             var inputAge = document.getElementById("age");
+            var ageValue = parseInt(inputAge.value);
 
-            /*
-            if (inputName.value == "") {
-                alert("El nombre es requerido");
-                return false;
+            if (isNaN(ageValue) || ageValue < 1 || ageValue > 120) {
+                alert("La edad debe ser un " + 'n\u00famero ' + 'v\u00e1lido ' + "entre 0 y 120.");
+                inputAge.value = "";
             }
+        }
 
-            if (
-                isNaN(inputAge.value) ||
-                inputAge.value < 0 ||
-                inputAge.value > 100
-            ) {
-                return false;
-            }*/
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            return true;
+            if (!emailRegex.test(emailInput.value)) {
+                alert("Ingrese una " + 'direcci\u00f3n' + " de correo " + 'electr\u00f3nico ' + 'v\u00e1lida.');
+                emailInput.value = "";
+            }
+        }
+
+        function validatePassword() {
+            var passwordInput = document.getElementById("clave");
+            var passwordValue = passwordInput.value;
+
+            if (passwordValue.length < 8 || !/[!@#$%^&*(),.?":{}|<>0-9a-zA-Z]/.test(passwordValue)) {
+                alert("La clave debe tener al menos 8 caracteres y contener caracteres especiales, " + 'n\u00fameros' + " y letras.");
+                passwordInput.value = "";
+            }
         }
 
         function changeImage(element, newImage) {
@@ -165,13 +173,12 @@
 
         function changeStyle(element, newsize) {
             element.style.width = newsize;
-            //element.style.color = "red";
         }
 
         function agregarParrafo() {
             var parrafo = document.createElement("p");
             var texto = document.createTextNode(
-                "Este parrafo fue creado dinamicamente"
+                "Este " + 'P\u00e1rrafo' + " fue creado " + 'din\u00e1micamente'
             );
             parrafo.appendChild(texto);
             document.body.appendChild(parrafo);
