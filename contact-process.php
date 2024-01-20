@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $direccionEntrega = $_POST["deliveryAddress"] ?? "";
     $clave = $_POST["clave"] ?? "";
 
-  
+
     $sistemasOperativosStr = implode(", ", $sistemasOperativos);
 
     // Mostrar el título después de iniciar el código PHP
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $directorioDestino = "Files/";
         $rutaDestino = $directorioDestino . $nombreArchivo;
-         move_uploaded_file($rutaTemporal, $rutaDestino);
+        move_uploaded_file($rutaTemporal, $rutaDestino);
 
         echo "<table border='1'>";
         echo "<thead>";
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<tr>";
         echo "<td> Ruta temporal: </td>";
         echo "<td> $rutaTemporal </td>";
-    echo "</tr>";
+        echo "</tr>";
         echo "<tr>";
         echo "<td> Ruta de destino: </td>";
         echo "<td> $rutaDestino </td>";
@@ -108,4 +108,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 // Desactivar el almacenamiento en búfer de salida
 ob_end_flush();
-?>

@@ -20,25 +20,22 @@
     <h1 class="mb-4">Cont&aacute;ctenos</h1>
     <hr />
 
-    <form id="form1" method="POST" action="/contact-process.php" enctype="multipart/form-data">
-        <div class="mb-3 form-control">
-            <label for="nombre" class="form-label">Nombre:</label>
-            <input id="name" placeholder="Ingrese el nombre" name="nombre" type="text" onchange="changeInput();"
-                class="form-control" required minlength="5" maxlength="20" />
+    <form method="POST" action="/contact-process-2.php" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input id="name" class="form-control" placeholder="Ingrese el Nombre" name="nombre" type="text"
+                onchange="changeInput();" required minlength="5" maxlength="20" />
         </div>
-
-        <div class="mb-3 form-control">
-            <label for="age" class="form-label">Edad:</label>
-            <input id="age" placeholder="Ingrese la edad" name="edad" type="number"
-                onchange="validateAge(); changeInput();" class="form-control" required />
+        <div class="form-group">
+            <label for="age">Edad</label>
+            <input id="age" class="form-control" placeholder="Ingrese su Edad" name="edad" type="number" required />
         </div>
-
-        <div class="mb-3 form-control">
-            <label for="address" class="form-label">Direcci&oacute;n:</label>
-            <input id="address" placeholder="Ingrese su Direcci&oacute;n" name="direccion" type="text"
-                onchange="changeInput();" class="form-control" required pattern="[A-Za-z ]+" />
+        <div class="form-group">
+            <label for="address">Direccion</label>
+            <input id="address" class="form-control" placeholder="Ingrese su Direccion" name="direccion" type="text"
+                required pattern="[A-Za-z ]+" />
         </div>
-
+        <!--
         <div class="mb-3 form-control">
             <label for="email" class="form-label">Email:</label>
             <input id="email" placeholder="Ingrese un correo Electr&oacute;nico" name="correo" type="email"
@@ -101,6 +98,8 @@
         <br />
 
         <hr />
+
+        -->
         <input type="submit" value="Enviar" />
 
         <br />
@@ -136,6 +135,22 @@
         src="assets/images/snes.jpg" width="200px" />
 
     <script>
+
+        function validateForm() {
+            //var inputName = document.getElementById("name");
+
+            var inputAge = document.getElementById('age');
+            /*
+            if (inputName.value == '') {
+                return false;
+            }*/
+
+            if (isNaN(inputAge.value) || inputAge.value < 0 || inputAge.value > 100) {
+                return false;
+            }
+
+            return true;
+        }
 
         function validateAge() {
             var inputAge = document.getElementById("age");
